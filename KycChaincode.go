@@ -143,7 +143,7 @@ func (t *KycChaincode) Query(stub shim.ChaincodeStubInterface, function string, 
 		KycDataObj.Source= ""
 		KycDataObj.KycStatus= "Expired"
 	}
-	else {
+	if lastDate.After(time.Now()) == false  {
 		KycDataObj.Source= row.Columns[5].GetString_()
 		KycDataObj.KycStatus= "OK"
 	}
