@@ -68,7 +68,7 @@ func (t *KycChaincode) AddKyc(stub shim.ChaincodeStubInterface, args []string) (
 	source := args[5]
 	ok, err := stub.InsertRow("KYC", shim.Row{
 		Columns: []*shim.Column{
-			&shim.Column{Value: &shim.Column_String_{String_: customerId}},
+			&shim.Column{Value: &shim.Column_String_{String_: enrollId}},
 			&shim.Column{Value: &shim.Column_String_{String_: userName}},
 			&shim.Column{Value: &shim.Column_String_{String_: lastUpdated}},
 			&shim.Column{Value: &shim.Column_String_{String_: bankName}},
